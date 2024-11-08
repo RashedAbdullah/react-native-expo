@@ -54,7 +54,7 @@ const HomePage = () => {
       <View className="flex-1 justify-center items-center">
         <Text
           style={{ fontFamily: "TiroBangla" }}
-          className="text-4xl text-indigo-900 mb-2 text-center"
+          className="text-4xl text-indigo-900 mb-2 text-center py-2"
         >
           সিহাবুল খায়ের ফাউন্ডেশন
         </Text>
