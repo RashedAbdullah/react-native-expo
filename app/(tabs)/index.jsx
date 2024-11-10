@@ -45,6 +45,9 @@ const HomePage = () => {
 
   return (
     <ScrollView className="flex-1 bg-white p-6">
+       <Link href="/settings" className="mt-20">
+        Settings
+      </Link>
       <View className="flex justify-center items-center mt-8">
         <Image
           source={require("../../assets/images/islamic-banking.jpg")}
