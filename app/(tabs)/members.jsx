@@ -8,7 +8,6 @@ import getInvoices from "../../utils/invoices";
 
 const MembersScreen = () => {
   const invoices = getInvoices();
-  console.log(invoices[0].membershipDate)
 
   return (
     <SafeAreaView className="flex-1 rounded-sm p-5 bg-white">
