@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, StatusBar } from "react-native";
 import React from "react";
 import { useFonts } from "expo-font";
 import { TiroBangla_400Regular } from "@expo-google-fonts/tiro-bangla";
@@ -15,6 +15,7 @@ const HomePage = () => {
 
   return (
     <ScrollView className="flex-1 bg-white p-6">
+      <StatusBar backgroundColor="#2F4F4F" barStyle="light-content" />
       <View className="flex justify-center items-center mt-8">
         <Image
           source={require("../../assets/images/islamic-banking.jpg")}
