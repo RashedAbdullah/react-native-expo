@@ -3,25 +3,12 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { Text } from "react-native-paper";
 import { getEngToBnNumber } from "../../utils/get-eng-to-bn";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { formatPrice } from "../../utils/format-price";
+import getInvoices from "../../utils/invoices";
 
-const MembersPage = () => {
-  const [invoices, setInvoices] = useState([]);
-
-  useEffect(() => {
-    const getInvoice = async () => {
-      try {
-        const response = await fetch(
-          "https://sihabul-khair.vercel.app/api/invoice"
-        );
-        const data = await response.json();
-        setInvoices(data.data);
-      } catch (error) {
-        console.error("Failed to fetch invoices:", error);
-      }
-    };
-
-    getInvoice();
-  }, []);
+const MembersScreen = () => {
+  const invoices = getInvoices();
+  console.log(invoices[0].membershipDate)
 
   return (
     <SafeAreaView className="flex-1 rounded-sm p-5 bg-white">
@@ -38,8 +25,8 @@ const MembersPage = () => {
             <Text className="w-44 pl-2 border-r">সদস্য</Text>
             <Text className="w-44 pl-2 border-r">পদ</Text>
             <Text className="w-20 pl-2 border-r">শেয়ার</Text>
-            <Text className="w-24 pl-2 border-r">মোট জমা</Text>
-            <Text className="w-32 pl-2">মেম্বারশীপ ডেট</Text>
+            <Text className="w-32 pl-2 border-r">মোট জমা</Text>
+            <Text className="w-36 pl-2">মেম্বারশীপ ডেট</Text>
           </View>
 
           <ScrollView>
@@ -53,8 +40,8 @@ const MembersPage = () => {
                 <Text className="w-20 pl-2 border-r">
                   {getEngToBnNumber(item.totalShare)}
                 </Text>
-                <Text className="w-24 pl-2 border-r">
-                  {getEngToBnNumber(
+                <Text className="w-32 pl-2 border-r">
+                  {formatPrice(
                     item.July +
                       item.August +
                       item.September +
@@ -69,7 +56,7 @@ const MembersPage = () => {
                       item.June
                   )}
                 </Text>
-                <Text className="w-32 pl-2">{item.membershipDate} ইং</Text>
+                <Text className="w-36 pl-2">{item.membershipDate} ইং</Text>
               </View>
             ))}
           </ScrollView>
@@ -102,4 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MembersPage;
+export default MembersScreen;

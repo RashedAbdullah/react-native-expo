@@ -1,4 +1,3 @@
-import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import { policies } from "../../data/policies";
 import { getEngToBnNumber } from "../../utils/get-eng-to-bn";
@@ -7,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const PolicyPage = () => {
   return (
     <ScrollView>
-      <SafeAreaView className="flex-1 bg-white p-6 mr-5">
+      <SafeAreaView className="flex-1 bg-white p-6 pr-5">
         <Text className="text-3xl font-extrabold text-blue-600 py-5 text-center">
           নীতিমালা
         </Text>
